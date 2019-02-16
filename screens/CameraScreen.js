@@ -38,7 +38,6 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-      <Text style={styles.getStartedText}>Take a picture of your groceries</Text>
         <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
@@ -46,9 +45,9 @@ export default class App extends React.Component {
           <View style={styles.welcomeContainer}>
             <Image
               source={
-                __DEV__
-                  ? require("../assets/images/robot-dev.png")
-                  : require("../assets/images/robot-prod.png")
+                __DEV__ 
+                ? require("../assets/images/camera2.jpg")
+                : require("../assets/images/camera2.jpg")
               }
               style={styles.welcomeImage}
             />
@@ -56,15 +55,16 @@ export default class App extends React.Component {
 
           <View style={styles.getStartedContainer}>
             {image ? null : (
-              <Text style={styles.getStartedText}>Google Cloud Vision</Text>
+              <Text style={styles.getStartedText}>Scan your products</Text>
             )}
           </View>
 
           <View style={styles.helpContainer}>
             <Button
               onPress={this._pickImage}
-              title="Pick an image from camera roll"
-            />
+              title="Open camera roll"
+            />  
+              <Text>{"\n"}</Text>
 
             <Button onPress={this._takePhoto} title="Take a photo" />
             {this.state.googleResponse && (
@@ -95,11 +95,10 @@ export default class App extends React.Component {
 
   _storeData = async () => {
     let { image, googleResponse } = this.state;
-    console.log(googleResponse)
-    let texts = {Response: googleResponse} 
+    let texts = {name: googleResponse.responses[0]} 
     try {
-      await AsyncStorage.setItem('googleResponse', JSON.stringify(googleResponse));
-      console.log('Saved to AsyncStorage')
+      await AsyncStorage.setItem('googleResponse', JSON.stringify(texts));
+      // console.log('Saved to AsyncStorage')
     } catch (error) {
       // Error saving data
       console.log('Error')
@@ -165,7 +164,7 @@ export default class App extends React.Component {
           style={{ paddingVertical: 10, paddingHorizontal: 10 }}
         />
 
-        <Text>Raw JSON:</Text>
+        <Text>Save to fridge</Text>
 
         {googleResponse && (
           <Text
@@ -197,7 +196,7 @@ export default class App extends React.Component {
   _copyToClipboard = () => {
     this._storeData()
     Clipboard.setString(this.state.image);
-    alert("Copied to clipboard");
+    alert("Products saved");
   };
 
   _takePhoto = async () => {
@@ -348,7 +347,7 @@ const styles = StyleSheet.create({
   },
 
   getStartedText: {
-    fontSize: 30,
+    fontSize: 17,
     color: "rgba(96,100,109, 1)",
     lineHeight: 24,
     textAlign: "center"

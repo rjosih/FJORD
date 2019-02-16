@@ -25,5 +25,10 @@
     "jest-expo": "^32.0.0",
     "schedule": "^0.4.0"
   },
+  "rnpm": {
+    "assets": [
+      "assets/fonts/TittiliumWeb"
+    ]
+  },
   "private": true
 }
