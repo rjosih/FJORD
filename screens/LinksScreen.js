@@ -1,8 +1,11 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, AsyncStorage } from 'react-native';
+import { ScrollView, StyleSheet, View, AsyncStorage, FlatList, Text } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
 export default class LinksScreen extends React.Component {
+  state = {
+    googleResponse: null
+  }
   static navigationOptions = {
     title: 'Links',
   };
@@ -12,18 +15,40 @@ export default class LinksScreen extends React.Component {
   }
 
   render() {
+    //let {googleResponse} = this.state
     return (
       <View>
+        <ScrollView>
+          <View>
+          {this.state.googleResponse && (
+              <FlatList
+                data={this.state.googleResponse.responses[0].labelAnnotations}  
+                extraData={this.state}
+                keyExtractor={this._keyExtractor}
+                renderItem={({ item }) => <Text>Item: {item.description}</Text>}
+              />
+            )}
+          </View>
+        </ScrollView>
       </View>
     ); 
   }
   _retrieveData = async () => {
     try {
       const value = await AsyncStorage.getItem('googleResponse');
-      if (value !== null) {
+      let parsed = JSON.parse(value) 
+      let parsedArray = []
+      if (parsed !== null) {
         // We have data!!
-        console.log(value);
+        parsedArray.push(parsed)
+        // console.log(parsedArray)
+        console.log(parsedArray[0])
+        // for (let i = 0; i < parsedArray[0])
+        this.setState({
+          googleResponse: parsed
+        })
       } else {
+        parsed = []
         console.log('Nothing found')
       }
     } catch (error) {

@@ -94,9 +94,10 @@ export default class App extends React.Component {
 
   _storeData = async () => {
     let { image, googleResponse } = this.state;
-    let texts = {name: googleResponse.responses[0]} 
+    console.log(googleResponse)
+    let texts = {Response: googleResponse} 
     try {
-      await AsyncStorage.setItem('googleResponse', JSON.stringify(texts));
+      await AsyncStorage.setItem('googleResponse', JSON.stringify(googleResponse));
       console.log('Saved to AsyncStorage')
     } catch (error) {
       // Error saving data
