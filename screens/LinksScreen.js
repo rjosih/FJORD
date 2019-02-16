@@ -7,7 +7,7 @@ export default class LinksScreen extends React.Component {
     googleResponse: null
   }
   static navigationOptions = {
-    title: 'Links',
+    title: 'Fridge',
   };
 
   async componentDidMount() {
@@ -25,7 +25,7 @@ export default class LinksScreen extends React.Component {
                 data={this.state.googleResponse.responses[0].labelAnnotations}  
                 extraData={this.state}
                 keyExtractor={this._keyExtractor}
-                renderItem={({ item }) => <Text>Item: {item.description}</Text>}
+                renderItem={({ item }) => <Text style={styles.itemContiner}>{item.description} {"\n"} Experation date: 7 days</Text>}
               />
             )}
           </View>
@@ -68,7 +68,7 @@ export default class LinksScreen extends React.Component {
           data={googleResponse.responses[0].labelAnnotations}
           extraData={this.state}
           keyExtractor={this._keyExtractor}
-          renderItem={({ item }) => <Text>Item: {item.description}</Text>}
+          renderItem={({ item }) => <Text style={styles.itemContiner}>{item.description}Experation date: 7 days</Text>}
         />
       )}
       </View> 
@@ -81,5 +81,13 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+  },
+  itemContiner: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 30,
+    backgroundColor: 'red',
+    margin: 5,
+    padding: 5,
   },
 });

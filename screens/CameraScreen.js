@@ -38,7 +38,7 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-      <Text style={styles.getStartedText}>Hej Rosa testar</Text>
+      <Text style={styles.getStartedText}>Take a picture of your groceries</Text>
         <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
   },
 
   getStartedText: {
-    fontSize: 17,
+    fontSize: 30,
     color: "rgba(96,100,109, 1)",
     lineHeight: 24,
     textAlign: "center"
