@@ -1,0 +1,7 @@
+const FIREBASE_API_KEY = 'AIzaSyBJtazSmcuQrUdKILSBegl4nd0kkl7eOok'
+const FIREBASE_AUTH_DOMAIN = 'fjord-efffc.firebaseapp.com'
+const FIREBASE_DATABASE_URL = 'https://fjord-efffc.firebaseio.com'
+const FIREBASE_PROJECT_ID = 'fjord-efffc'
+const FIREBASE_STORAGE_BUCKET = 'fjord-efffc.appspot.com'
+const FIREBASE_MESSAGING_SENDER_ID = '179177717125'
+const GOOGLE_CLOUD_VISION_API_KEY = 'AIzaSyCemI-BTQvPKPaHplXcrnfliLczrCOPL1k'
