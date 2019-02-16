@@ -14,7 +14,7 @@ export default class LinksScreen extends React.Component {
     this._retrieveData()
   }
 
-  render() {
+  render() {  
     //let {googleResponse} = this.state
     return (
       <View>
@@ -43,7 +43,6 @@ export default class LinksScreen extends React.Component {
         parsedArray.push(parsed)
         // console.log(parsedArray)
         console.log(parsedArray[0])
-        // for (let i = 0; i < parsedArray[0])
         this.setState({
           googleResponse: parsed
         })
