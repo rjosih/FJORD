@@ -38,6 +38,7 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
+      <Text style={styles.getStartedText}>Hej Rosa testar</Text>
         <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
