@@ -97,8 +97,8 @@ export default class App extends React.Component {
     let { image, googleResponse } = this.state;
     let texts = {name: googleResponse.responses[0]} 
     try {
-      await AsyncStorage.setItem('googleResponse', JSON.stringify(texts));
-      // console.log('Saved to AsyncStorage')
+      await AsyncStorage.setItem('googleResponse', JSON.stringify(googleResponse));
+      console.log('Saved to AsyncStorage')
     } catch (error) {
       // Error saving data
       console.log('Error')
@@ -164,16 +164,15 @@ export default class App extends React.Component {
           style={{ paddingVertical: 10, paddingHorizontal: 10 }}
         />
 
-        <Text>Save to fridge</Text>
-
         {googleResponse && (
-          <Text
+          <Button
+          title='Save to fridge'
             onPress={this._copyToClipboard}
             onLongPress={this._share}
             style={{ paddingVertical: 10, paddingHorizontal: 10 }}
           >
-            JSON.stringify(googleResponse.responses)}
-          </Text>
+           Save to fridge
+          </Button>
         )}
       </View>
     );
@@ -347,7 +346,8 @@ const styles = StyleSheet.create({
   },
 
   getStartedText: {
-    fontSize: 17,
+    marginTop: 10,
+    fontSize: 24,
     color: "rgba(96,100,109, 1)",
     lineHeight: 24,
     textAlign: "center"
