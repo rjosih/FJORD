@@ -4,7 +4,7 @@ Hackaton, Meridium 2019
 ## About
 FJORD is a project made by Rosa Ekström,  Sebastian Källstedt, Fanny Reslow and Johan Pettersson during Meridium's Hackaton 2019 in Kalmar. 
 
-The idea with our project is to let people be more aware about their food waste. Our app makes it easier to tracking your products and its expire date.
+The idea with our project is to let people be more aware about their food waste. Our app makes it easier to tracking your products and its expire date. More about the project, click on the `DemoFjord.pptx` file.
 ### Roles
 Rosa Ekström: web developer
 
